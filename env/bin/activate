@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Volumes/Macintosh HD2/FastAPI/instagram-clone-api/env"
+VIRTUAL_ENV="/Users/admin/Desktop/fullstack/instagram clone/FastAPI-instagram-clone/env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

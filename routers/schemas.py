@@ -25,15 +25,17 @@ class PostCreate(BaseModel):
 # for PostDisplay
 class User(BaseModel):
     username: str
+    avatar_url: str
+    avatar_url_type: str
 
 # for PostDisplay
 class Comment(BaseModel):
     text: str
     username: str    
     timestamp: datetime
-
+ 
 class PostDisplay(BaseModel):
-    id: int
+    id: int 
     image_url: str
     image_url_type: str
     caption: str
@@ -46,6 +48,10 @@ class UserAuth(BaseModel):
     id: int
     username: str
     email: str
+
+class UserAvatarSet(BaseModel):
+    avatar_url: str
+    avatar_url_type: str
 
 
 class CommentBase(BaseModel):

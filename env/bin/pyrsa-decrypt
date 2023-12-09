@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Volumes/Macintosh HD2/FastAPI/instagram-clone-api/env/bin/python3" "$0" "$@"
+'''exec' "/Users/admin/Desktop/fullstack/instagram clone/FastAPI-instagram-clone/env/bin/python3.11" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re

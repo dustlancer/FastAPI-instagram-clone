@@ -7,7 +7,9 @@ class DbUser(Base):
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String)
     email = Column(String)
-    password =  Column(String)
+    password = Column(String)
+    avatar_url = Column(String)
+    avatar_url_type = Column(String)
     items = relationship('DbPost', back_populates='user')
 
 

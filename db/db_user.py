@@ -43,3 +43,11 @@ def set_avatar(db: Session, user_id: int, request: UserAvatarSet):
     db.commit()
 
     return user
+
+
+def get_profile(db: Session, user_id: int, current_user_id: int = 0):
+    user = db.query(DbUser).filter(DbUser.id == user_id).first()
+    if not user:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail=f'User with id {user_id} not found')
+    return user

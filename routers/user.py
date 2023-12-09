@@ -2,7 +2,7 @@ from urllib import request
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm.session import Session
 from db.database import get_db
-from .schemas import UserBase, UserDisplay, UserAvatarSet
+from .schemas import UserBase, UserDisplay, UserAvatarSet, UserProfile
 from db import db_user
 from routers.schemas import UserAuth
 from auth.oauth2 import get_current_user
@@ -30,3 +30,10 @@ def set_avatar(request: UserAvatarSet, db:Session = Depends(get_db), current_use
         raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
                             detail="Parameter image_url_type can only take values 'absolute' or 'relative'")
     return db_user.set_avatar(db=db, user_id=current_user.id, request=request)
+
+@router.get('/profile/{user_id}', response_model=UserProfile)
+def get_user_profile(user_id:int, db: Session = Depends(get_db)):
+    return db_user.get_profile(db=db, user_id=user_id)
+
+
+# current_user: UserAuth = Depends(get_current_user)

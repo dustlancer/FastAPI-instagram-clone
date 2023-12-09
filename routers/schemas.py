@@ -59,3 +59,9 @@ class CommentBase(BaseModel):
     text: str
     post_id: str
 
+
+class UserProfile(BaseModel):
+    username: str
+    avatar_url: str
+    avatar_url_type: str
+    items: List[PostDisplay]
